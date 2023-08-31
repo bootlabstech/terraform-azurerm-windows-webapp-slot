@@ -1,4 +1,4 @@
-resource "azurerm_linux_web_app_slot" "webapp_slot" {
+resource "azurerm_windows_web_app_slot" "webapp_slot" {
     name = var.name
     app_service_id = var.app_service_id
     site_config {

@@ -19,7 +19,7 @@ resource "azurerm_windows_web_app_slot" "webapp_slot" {
         dynamic "application_stack" {
           for_each = var.current_stack == "docker" ? [1] : []
           content {
-            docker_image     = var.stack_version
+            docker_image     = var.stack_version 
             docker_image_tag = var.docker_image_tag
           }
         }

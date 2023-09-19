@@ -1,7 +1,7 @@
 # Creates a Windows webapp slot
 resource "azurerm_windows_web_app_slot" "web_app_slot" {
   name            = var.name
-  service_plan_id = var.service_plan_id
+  app_service_id = var.app_service_id
 
   site_config {
     ftps_state       = var.ftps_state

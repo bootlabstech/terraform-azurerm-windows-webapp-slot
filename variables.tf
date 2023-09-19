@@ -1,42 +1,57 @@
 variable "name" {
-    description = "The name of the webapp deployment slot to be created"
-    type = string
-  
+  type        = string
+  description = "The name which should be used for this Windows Windows Web App."
 }
-variable "app_service_id" {
-    description = "The resource id of the existing webapp "
-    type = string
-  
+
+variable "service_plan_id" {
+  type        = string
+  description = "The ID of the Service Plan that this Windows App Service will be created in."
+
+}
+
+variable "ftps_state" {
+  type        = string
+  description = "The State of FTP / FTPS service. Possible values include: AllAllowed, FtpsOnly, Disabled."
+  default     = "FtpsOnly"
+}
+
+variable "app_command_line" {
+  type        = string
+  description = "The App command line to launch."
+  default     = ""
 }
 variable "current_stack" {
-    description = "The application stack of the webapp"
-    type = string
-  
+  type        = string
+  description = " The Application Stack for the Windows Web App. Possible values include dotnet, dotnetcore, node, python, php, and java."
 }
+
 variable "stack_version" {
-    description = "Application Stack Version"
-    type = string
-  
+  type        = string
+  description = "Version of the selected stack."
+
 }
-variable "java_server" {
-    description = "The Java server type"
-    type = string
-    default = "JAVA"
-  
+
+variable "docker_registry_url" {
+  type        = string
+  description = "The URL of the container registry where the docker_image_name is located. e.g. https://index.docker.io or https://mcr.microsoft.com. This value is required with docker_image_name."
+  default     = "https://mcr.microsoft.com"
 }
-variable "docker_image_tag" {
-    description = "he image Tag to use. e.g. latest"
-    type = string
-    default = "latest"
-  
+variable "docker_registry_username" {
+  type        = string
+  description = "The User Name to use for authentication against the registry to pull the image."
+  default     = "admin"
+
 }
-variable "app_command_line" {
-    description = "The App command line to launch"
-    type = string
-  
+variable "docker_registry_password" {
+  type        = string
+  description = "The User Name to use for authentication against the registry to pull the image."
+  default     = "Welcome@1234"
+
 }
-variable "ftps_state" {
-    description = "The State of FTP / FTPS service. Possible values include AllAllowed, FtpsOnly, and Disabled."
-    type = string
-  
+
+variable "python" {
+  type        = bool
+  description = "value"
+  default     = false
+
 }

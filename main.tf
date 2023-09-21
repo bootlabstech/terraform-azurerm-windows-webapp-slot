@@ -9,10 +9,10 @@ resource "azurerm_windows_web_app_slot" "web_app_slot" {
     dynamic "application_stack" {
       for_each = var.current_stack == "docker" ? [1] : []
       content {
-        docker_image_name        = var.stack_version
-        docker_registry_url      = var.docker_registry_url
-        docker_registry_username = var.docker_registry_username
-        docker_registry_password = var.docker_registry_password
+        docker_image       = var.stack_version
+        # docker_registry_url      = var.docker_registry_url
+        # docker_registry_username = var.docker_registry_username
+        # docker_registry_password = var.docker_registry_password
       }
     }
     dynamic "application_stack" {

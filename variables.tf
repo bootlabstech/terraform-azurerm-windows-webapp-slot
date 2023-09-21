@@ -47,7 +47,7 @@ variable "stack_version" {
 #   description = "The User Name to use for authentication against the registry to pull the image."
 #   default     = "Welcome@1234"
 
-}
+# }
 
 variable "python" {
   type        = bool

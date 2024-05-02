@@ -55,3 +55,33 @@ variable "python" {
   default     = false
 
 }
+variable "virtual_network_subnet_id" {
+  type        = string
+  description = "value"
+  
+}
+variable "vnet_route_all_enabled" {
+  type        = bool
+  description = "value"
+  
+}
+variable "physical_path" {
+    type =  string
+    description = "value"
+  
+}
+variable "virtual_path" {
+    type = string
+    description = "value"
+  
+}
+variable "physical_path1" {
+    type =  string
+    description = "value"
+  
+}
+variable "virtual_path1" {
+    type = string
+    description = "value"
+  
+}

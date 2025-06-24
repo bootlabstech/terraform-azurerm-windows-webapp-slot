@@ -4,6 +4,7 @@ resource "azurerm_windows_web_app_slot" "web_app_slot" {
   app_service_id = var.app_service_id
   virtual_network_subnet_id = var.virtual_network_subnet_id
 
+
   site_config {
     ftps_state       = var.ftps_state
     app_command_line = var.app_command_line
@@ -116,11 +117,11 @@ resource "azurerm_windows_web_app_slot" "web_app_slot" {
 
     dynamic "application_stack" {
       for_each = var.current_stack == "docker" ? [1] : []
-      content {
-        docker_container_name       = var.stack_version
-        # docker_registry_url      = var.docker_registry_url
-        # docker_registry_username = var.docker_registry_username
-        # docker_registry_password = var.docker_registry_password
+      content {        
+        docker_image_name       = var.stack_version
+        docker_registry_url      = var.docker_registry_url
+        docker_registry_username = var.docker_registry_username
+        docker_registry_password = var.docker_registry_password
       }
     }
     dynamic "application_stack" {
@@ -159,7 +160,7 @@ resource "azurerm_windows_web_app_slot" "web_app_slot" {
         python = var.python
       }
     }
-    virtual_application {
+  virtual_application {
     preload = true
     physical_path = var.physical_path
     virtual_path = var.virtual_path
